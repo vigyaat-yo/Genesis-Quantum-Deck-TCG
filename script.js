@@ -1,0 +1,1 @@
+console.log("Genesis Quantum Deck TCG script loaded.");
