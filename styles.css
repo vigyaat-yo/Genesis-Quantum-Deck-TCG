@@ -25,6 +25,19 @@ body{
     border-radius: 12px;
     background-size: cover;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); 
+    position: relative;
+    overflow: hidden;
+}
+
+.card-name{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 8px 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .buttons{
