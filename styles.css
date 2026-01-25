@@ -1,5 +1,51 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body{
+    font-family: Arial, sans-serif;
+    background: #0f1220;
+    color: white;
+    text-align: center;
+}
+
+.game{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.player{
+    width: 250px;
+}
+
+.card{
+    height: 330px;
+    width: 220px;
+    margin: auto;
+    margin-top: 10px;
+    background: #1d2135;
+    border-radius: 12px;
+    background-size: cover;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); 
+}
+
+.buttons{
+    display: grid;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+button{
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover{
+    transform: scale(1.05);
+}
+
+#nextBtn{
+    background: #00d084;
+    color: black;
 }
