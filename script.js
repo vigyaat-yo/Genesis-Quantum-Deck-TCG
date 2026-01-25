@@ -58,27 +58,49 @@ function shuffle(arr){
 
 // SHOW CARDS FUNCTION
 function showCards(){
+
     if(player1.length){
-        document.getElementById("p1Img").src = player1[0].image;
-        document.getElementById("p1Name").textContent = player1[0].name;
+        const c = player1[0];
+
+        document.getElementById("p1Img").src = c.image;
+        document.getElementById("p1Name").textContent = c.name;
+
+        document.getElementById("p1Stats").innerHTML =
+        `
+        <span>⚡ ${c.power} HP</span>
+        <span>🧠 ${c.processor} THz</span>
+        <span>🚀 ${c.velocity} km/h</span>
+        <span>💾 ${c.memory} TB</span>
+        `;
+
     }
 
     if(player2.length){
-        document.getElementById("p2Img").src = player2[0].image;
-        document.getElementById("p2Name").textContent = player2[0].name;
+        const c = player2[0];
+
+        document.getElementById("p2Img").src = c.image;
+        document.getElementById("p2Name").textContent = c.name;
+
+        document.getElementById("p2Stats").innerHTML =
+        `
+        <span>⚡ ${c.power} HP</span>
+        <span>🧠 ${c.processor} THz</span>
+        <span>🚀 ${c.velocity} km/h</span>
+        <span>💾 ${c.memory} TB</span>
+        `;
     }
-    
+
     p1Count.textContent = player1.length;
     p2Count.textContent = player2.length;
 }
-showCards();
 
 // CHOOSE STAT FUNCTION
 document.querySelectorAll("[data-stat]").forEach(btn => {
     btn.onclick = ()=> {
         if(currentChooser === 1 || currentChooser === 2){
             chosenStat = btn.dataset.stat;
-            turnText.textContent = 'stat: ${chosenStat.toUpperCase()}';
+            turnText.textContent = `Stat: ${chosenStat.toUpperCase()}`;
+
         }
     }
 });
@@ -126,3 +148,4 @@ function checkWinner(){
         location.reload();
     }
 }
+showCards();
