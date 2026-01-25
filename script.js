@@ -59,12 +59,12 @@ function shuffle(arr){
 // SHOW CARDS FUNCTION
 function showCards(){
     if(player1.length){
-        p1CardDiv.style.backgroundImage = 'url(${player1[0].image})';
+        document.getElementById("p1Img").src = player1[0].image;
         document.getElementById("p1Name").textContent = player1[0].name;
     }
 
     if(player2.length){
-        p2CardDiv.style.backgroundImage = 'url(${player2[0].image})';
+        document.getElementById("p2Img").src = player2[0].image;
         document.getElementById("p2Name").textContent = player2[0].name;
     }
     
