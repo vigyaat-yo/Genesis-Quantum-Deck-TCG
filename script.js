@@ -1,3 +1,5 @@
+// GENESIS QUANTUM DECK TCG SCRIPT
+
 // CARD DATA 
 const cardsData = [  
     {name: "Titan-X", image: "assets/robot1.png", power: 95, processor: 88, velocity: 60, memory: 70},
