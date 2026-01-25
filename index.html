@@ -7,7 +7,35 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <h1>🤖 Genesis Quantum Deck TCG</h1>
+    <div class="game">
+        <div class="player" id="p1">
+            <h2>Player 1</h2>
+            <div class="count">
+                Cards: <span id="p1Count">15</span>
+            </div>
+            <div class="card" id="p1Card"></div>
+        </div>
+        <div class="center">
+            <div id="turnText">Player 1 chooses stat</div>
+            <div class="buttons">
+                <button data-stat="power">Power</button>
+                <button data-stat="processor">Processor</button>
+                <button data-stat="velocity">Velocity</button>
+                <button data-stat="memory">Memory</button>
+            </div>
+
+            <button id="nextBtn">Play Round</button>
+        </div>
+
+        <div class="player" id="p2">
+            <h2>Player 2</h2>
+            <div class="count">
+                Cards: <span id="p2Count">15</span>
+            </div>
+            <div class="card" id="p2Card"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
