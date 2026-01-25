@@ -95,15 +95,19 @@ function showCards(){
 }
 
 // CHOOSE STAT FUNCTION
-document.querySelectorAll("[data-stat]").forEach(btn => {
-    btn.onclick = ()=> {
-        if(currentChooser === 1 || currentChooser === 2){
-            chosenStat = btn.dataset.stat;
-            turnText.textContent = `Stat: ${chosenStat.toUpperCase()}`;
+document.querySelectorAll("[data-stat]").forEach(btn=>{
+    btn.onclick = () => {
+        document.querySelectorAll("[data-stat]")
+            .forEach(b => b.classList.remove("active"));
 
-        }
-    }
+        btn.classList.add("active");
+
+        chosenStat = btn.dataset.stat;
+
+        turnText.textContent = `Stat: ${chosenStat.toUpperCase()}`;
+    };
 });
+
 
 // PLAY ROUNDS
 document.getElementById("nextBtn").onclick = () => {
@@ -115,15 +119,34 @@ document.getElementById("nextBtn").onclick = () => {
     let v1 = c1[chosenStat];
     let v2 = c2[chosenStat];
 
+    const p1CardEl = document.getElementById("p1Card");
+    const p2CardEl = document.getElementById("p2Card");
+
+    p1CardEl.classList.add("attack");
+    p2CardEl.classList.add("attack");
+
+    setTimeout(()=>{
+    p1CardEl.classList.remove("attack");
+    p2CardEl.classList.remove("attack");
+    },250);
+
+    showDamage(p1CardEl, v1);
+    showDamage(p2CardEl, v2);
+
+
     if(v1 > v2){
         player1.push(c1, c2);
         currentChooser = 1;
         turnText.textContent = "Player 1 wins the round!";
+        p1CardEl.classList.add("win");
+        setTimeout(()=>p1CardEl.classList.remove("win"),400);
     }
     else if(v2 > v1){
         player2.push(c1, c2);
         currentChooser = 2;
         turnText.textContent = "Player 2 wins the round!";
+        p2CardEl.classList.add("win");
+        setTimeout(()=>p2CardEl.classList.remove("win"),400);
     }
     else{
         player1.push(c1);
@@ -148,4 +171,16 @@ function checkWinner(){
         location.reload();
     }
 }
+
+// SHOW DAMAGE FUNCTION
+function showDamage(cardEl, value){
+    const d = document.createElement("div");
+    d.className = "damage";
+    d.textContent = value;
+
+    cardEl.appendChild(d);
+
+    setTimeout(()=>d.remove(),700);
+}
+
 showCards();

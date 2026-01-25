@@ -102,3 +102,62 @@ button:hover{
     background: #00d084;
     color: black;
 }
+
+.card{
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover{
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+}
+
+button.active{
+    background:#00d084;
+    color:black;
+    transform:scale(1.05);
+}
+
+button:active{
+    transform:scale(.92);
+}
+
+.card.win{
+    animation: winFlash .4s ease;
+}
+
+@keyframes winFlash{
+    0%{ box-shadow:0 0 0px #00ff88; }
+    50%{ box-shadow:0 0 40px #00ff88; }
+    100%{ box-shadow:0 0 0px #00ff88; }
+}
+
+.card.attack{
+    animation: shake .25s;
+}
+
+@keyframes shake{
+    0%{transform:translateX(0)}
+    25%{transform:translateX(-6px)}
+    50%{transform:translateX(6px)}
+    75%{transform:translateX(-6px)}
+    100%{transform:translateX(0)}
+}
+
+.damage{
+    position:absolute;
+    top:40%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    font-size:22px;
+    font-weight:bold;
+    color:#ff4d4d;
+    text-shadow:0 0 8px black;
+    animation:pop .7s ease forwards;
+    pointer-events:none;
+}
+
+@keyframes pop{
+    0%{ transform:translate(-50%,-50%); opacity:1; }
+    100%{ transform:translate(-50%,-90px); opacity:0; }
+}
